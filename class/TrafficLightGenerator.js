@@ -7,6 +7,8 @@ export class TrafficLightGenerator {
 			})
 		})
 	}
+	
+	subscribers = []
 	signalList = []
 	activity = false
 	signal = 1
@@ -25,7 +27,6 @@ export class TrafficLightGenerator {
 	}
 
 	on() {
-		console.log(this.signalList)
 		this.activity = true
 		this.loop()
 	}
@@ -36,10 +37,16 @@ export class TrafficLightGenerator {
 
 	loop() {
 		this.changeSignal()
-		console.log(this.signalList[this.signal].name)
+		this.subscribers.forEach(observer => {
+			observer.update(this.signal)
+		})
 		if (this.activity) {
-			// setTimeout(this.loop.bind(this), this.signalsList[this.signalKeys[this.Signal]])
+			// setTimeout(this.loop.bind(this), this.signalList[this.signal].time)
 			setTimeout(() => this.loop(), this.signalList[this.signal].time)
 		} else return
+	}
+
+	subscribe(observer) {
+		this.subscribers.push(observer)
 	}
 }

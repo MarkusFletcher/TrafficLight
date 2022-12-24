@@ -5,8 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+
+    <div class="traffic-light js-traffic-light">
+        <div class="traffic-light__lamp traffic-light__lamp--green active" data-signal="go"></div>
+        <div class="traffic-light__lamp traffic-light__lamp--yellow" data-signal="prepare"></div>
+        <div class="traffic-light__lamp traffic-light__lamp--red" data-signal="stop"></div>
+    </div>
     
     <script src="script.js" type="module"></script>
 </body>
