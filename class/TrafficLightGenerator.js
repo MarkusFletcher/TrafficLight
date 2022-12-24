@@ -16,13 +16,9 @@ export class TrafficLightGenerator {
 	
 	changeSignal() {
 		if (this.signal == 0 || (this.signal < this.signalList.length - 1 && this.signal > this.prev)) {
-			this.prev = this.signal
-			this.signal++
-			return
+			this.prev = this.signal++
 		} else {
-			this.prev = this.signal
-			this.signal--
-			return
+			this.prev = this.signal--
 		}
 	}
 

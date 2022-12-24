@@ -18,7 +18,9 @@ export class TrafficLightView {
         this.signal = this.signalList[signal].name
         this.signalList.forEach(el => {
             el.node.classList.remove('active')
-            if(el.name == this.signal) el.node.classList.add('active')
+            if(el.name == this.signal) {
+                el.node.classList.add('active')
+            }
         })
     }
 
